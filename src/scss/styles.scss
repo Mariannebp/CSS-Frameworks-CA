@@ -1,17 +1,4 @@
 
-
 @import "./variables";
 @import "./navbar";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
-
-
-h1 {
-  color: $primary-color;
-  display: flex;
-  justify-content: center;
-}
-
-p {
-  color: $secondary-color;
-}
