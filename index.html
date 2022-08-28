@@ -49,6 +49,7 @@
               />
             </a>
             <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="pages/profile.html">My profile</a></li>
               <li><a class="dropdown-item" href="pages/login.html">Log In</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Sign out</a></li>
@@ -57,14 +58,75 @@
         </div>
       </div>
     </header>
-    <main class="m-5">
-      <h1 class="m-5 mt-3">The Community</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-        repellendus illum officiis repudiandae eum vero quod velit molestias
-        natus! Nulla, voluptatibus expedita repellendus fugit laboriosam
-        repudiandae voluptatum magni ducimus fuga.
-      </p>
+    <main class="m-auto" style="max-width: 1000px;">
+      <section class="m-3 mb-5">
+        <h1 class="mt-3 mb-5">The Community</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+          repellendus illum officiis repudiandae eum vero quod velit molestias
+          natus! Nulla, voluptatibus expedita repellendus fugit laboriosam
+          repudiandae voluptatum magni ducimus fuga.
+        </p>
+      </section>
+      <section class="m-5 mb-5 d-grid gap-3">
+        <div class="border">
+          <div class="m-3 d-flex">
+            <img
+                  src="/img/avatar-1606939.png"
+                  alt="mdo"
+                  width="32"
+                  height="32"
+                  />
+            <p class="ms-2">John Smith</p>
+          </div>
+          <div class="ms-3 mt-3">
+            <h4 class="font-monospace">A title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor ducimus labore expedita, a numquam nemo, laudantium illum nostrum voluptas molestiae vero deleniti tempora ipsa repudiandae inventore ex quae porro?</p>
+          </div>
+        </div>
+        <div class="border">
+          <div class="m-3 d-flex">
+            <img
+                  src="/img/avatar-1606939.png"
+                  alt="mdo"
+                  width="32"
+                  height="32"
+                  />
+            <p class="ms-2">John Smith</p>
+          </div>
+          <div class="ms-3 mt-3">
+            <h4 class="font-monospace">A title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor ducimus labore expedita, a numquam nemo, laudantium illum nostrum voluptas molestiae vero deleniti tempora ipsa repudiandae inventore ex quae porro?</p>
+          </div>
+        </div>
+        <div class="border">
+          <div class="m-3 d-flex">
+            <img
+                  src="/img/avatar-1606939.png"
+                  alt="mdo"
+                  width="32"
+                  height="32"
+                  />
+            <p class="ms-2">John Smith</p>
+          </div>
+          <div class="ms-3 mt-3">
+            <h4 class="font-monospace">A title</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor ducimus labore expedita, a numquam nemo, laudantium illum nostrum voluptas molestiae vero deleniti tempora ipsa repudiandae inventore ex quae porro?</p>
+          </div>
+        </div>
+      </section>
+      <section class="m-3 mb-5">
+        <h3>Add a new post</h3>
+        <form class="d-flex flex-column justify-content-center">
+            <label for="title" class="form-label text-start">Title</label>
+            <input type="text" id="title" class="form-control mb-3" />
+            <label for="text" class="form-label text-start">Text</label>
+            <textarea name="content" id="text" cols="30" rows="10" class="form-control mb-3"></textarea>
+          </form>
+          <div class="d-flex justify-content-end">
+            <button class="mt-3 btn btn-secondary">Post</button>
+          </div>
+      </section>
     </main>
     <footer class="footer mt-auto py-3 bg-light text-center">
       <div class="container">
