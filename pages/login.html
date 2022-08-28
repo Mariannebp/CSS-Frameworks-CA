@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Frameworks CA - Log In</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+  </head>
+</html>
+<body class="d-flex flex-column min-vh-100 bg-primary bg-gradient text-white">
+  <header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+      >
+        <ul
+          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+        >
+          <li>
+            <a href="/index.html" class="nav-link px-2 link-light">Home</a>
+          </li>
+          <li class="nav-link px-2 link-dark">Log in</li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+        </form>
+
+        <div class="dropdown text-end">
+          <a
+            href="#"
+            class="d-block link-dark text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="/img/avatar-1606939.png"
+              alt="mdo"
+              width="32"
+              height="32"
+              class="rounded-circle"
+            />
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li>
+              <a class="dropdown-item" href="login.html">Log In</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="/index.html">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="form-signin text-center m-auto d-flex justify-content-center">
+    <form>
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput" class="text-dark">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword" class="text-dark">Password</label>
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+
+      <button class="btn btn-lg btn-secondary" type="submit">
+        <a href="profile.html" class="text-dark text-decoration-none p-4"
+          >Sign in</a
+        >
+      </button>
+    </form>
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-light text-center">
+    <div class="container">
+      <span class="text-muted">&copy; Copyright</span>
+    </div>
+  </footer>
+
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
