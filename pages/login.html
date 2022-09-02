@@ -11,7 +11,7 @@
 <body
   class="d-flex flex-column min-vh-100 bg-primary bg-gradient text-secondary"
 >
-  <header class="p-3 mb-3 border-bottom border-info bg-headerbg bg-opacity-10">
+  <header class="p-3 mb-3">
     <div class="container">
       <div
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
@@ -22,7 +22,7 @@
           <li>
             <a href="/index.html" class="nav-link px-2 link-info">Home</a>
           </li>
-          <li class="nav-link px-2 link-info fst-italic">Log in</li>
+          <li class="nav-link px-2 fst-italic">Log in</li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -51,16 +51,14 @@
           </a>
           <ul class="dropdown-menu text-small">
             <li>
-              <a class="dropdown-item text-info" href="profile.html"
-                >My profile</a
-              >
+              <a class="dropdown-item" href="profile.html">My profile</a>
             </li>
             <li>
-              <a class="dropdown-item text-info" href="login.html">Log In</a>
+              <a class="dropdown-item" href="login.html">Log In</a>
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item text-info" href="/index.html">Sign out</a>
+              <a class="dropdown-item" href="/index.html">Sign out</a>
             </li>
           </ul>
         </div>
@@ -78,6 +76,7 @@
               class="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              required
             />
             <label for="floatingInput" class="ms-3">Email address</label>
           </div>
@@ -87,6 +86,7 @@
               class="form-control"
               id="floatingPassword"
               placeholder="Password"
+              required
             />
             <label for="floatingPassword" class="ms-3">Password</label>
           </div>
@@ -96,9 +96,8 @@
               Remember me
             </label>
           </div>
-          <button class="mt-3 btn btn-buttonbg" type="submit">
-            <a href="profile.html" class="text-decoration-none p-4">Log in</a>
-          </button>
+          <button class="mt-3 btn btn-buttonbg" type="submit">Log in</button>
+          <a class="text-buttonbg mt-2">New user</a>
         </form>
       </div>
     </section>
