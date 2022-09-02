@@ -1,14 +1,10 @@
 // Colors //
 
-$blue:           #1f00cf;
+$pink-light:     #d6338444;
 $pink:           #d63384;
-$pink-light:     #e9dae1;
 $pink-medium:    #a00452;
 $pink-dark:      #53002a;
-$red:            #a80011;
 $yellow:         #ffc107;
-$green:          #198754;
-$teal:           #32c2b6;
 $gray-light:     #f8f9fa;
 $gray-medium:    #d6dadd;
 $gray-dark:      #212529;
@@ -18,24 +14,18 @@ $white:          #fff;
 $primary:       $white;
 $secondary:     $gray-dark;
 $info:          $pink-dark;
-$headerbg:      $pink;
+$headerbg:      $pink-light;
 $buttonbg:      $pink-medium;
-$light:         $gray-light;
 $medium:        $gray-medium;
 $dark:          $gray-dark;
-$warning:       $yellow;
-$danger:        $red;
+$like:          $yellow;
 
 
 $theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
   "buttonbg":   $buttonbg,
   "info":       $info,
   "headerbg":   $headerbg,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
+  "like":       $like,
   "medium":     $medium,
   "dark":       $dark
 );
