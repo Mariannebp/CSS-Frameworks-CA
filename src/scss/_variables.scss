@@ -4,6 +4,7 @@ $pink-light:     #d6338444;
 $pink:           #d63384;
 $pink-medium:    #a00452;
 $pink-dark:      #53002a;
+$blue:           #22009b;
 $yellow:         #ffc107;
 $gray-light:     #f8f9fa;
 $gray-medium:    #d6dadd;
@@ -19,6 +20,7 @@ $buttonbg:      $pink-medium;
 $medium:        $gray-medium;
 $dark:          $gray-dark;
 $like:          $yellow;
+$error:         $blue;
 
 
 $theme-colors: (
@@ -27,7 +29,8 @@ $theme-colors: (
   "headerbg":   $headerbg,
   "like":       $like,
   "medium":     $medium,
-  "dark":       $dark
+  "dark":       $dark,
+  "error":      $error
 );
 
 $headings-color: $pink-medium;
