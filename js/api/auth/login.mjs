@@ -21,6 +21,8 @@ export async function login(profile) {
   storage.save("token", accessToken)
   storage.save("profile", user)
 
-  alert("You logged in!")
+  alert("You logged in!"); 
+  
+ 
 
 }

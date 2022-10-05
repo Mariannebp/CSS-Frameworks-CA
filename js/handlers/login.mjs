@@ -8,9 +8,11 @@ export function setLoginUserFormListener() {
   
     const form = event.target;
     const formData = new FormData(form);
-    const profile = Object.fromEntries(formData.entries())
-
+    const profile = Object.fromEntries(formData.entries());
+     
     login(profile)
+      
 })
+  
 }
 
