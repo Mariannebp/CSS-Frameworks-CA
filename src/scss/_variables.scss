@@ -7,7 +7,7 @@ $pink-dark:      #53002a;
 $blue:           #22009b;
 $yellow:         #ffc107;
 $gray-light:     #f8f9fa;
-$gray-medium:    #d6dadd;
+$gray-medium:   #b9b9b9;
 $gray-dark:      #212529;
 $white:          #fff;
 
@@ -21,6 +21,7 @@ $medium:        $gray-medium;
 $dark:          $gray-dark;
 $like:          $yellow;
 $error:         $blue;
+$delete:        $medium;
 
 
 $theme-colors: (
@@ -30,7 +31,8 @@ $theme-colors: (
   "like":       $like,
   "medium":     $medium,
   "dark":       $dark,
-  "error":      $error
+  "error":      $error,
+  "delete":     $delete
 );
 
 $headings-color: $pink-medium;
