@@ -1,28 +1,25 @@
-import { authFetch } from "../authFetch.mjs";
-import { socialBaseUrl } from "../constants.mjs";
 import { load } from "../../storage/index.mjs";
-
-const action = "/profiles";
-const method = "get";
 
 export function getProfile() {
   const userName = document.querySelector("#userName");
-  const userEMail = document.querySelector("#userEmail");
+  const userEmail = document.querySelector("#userEmail");
+  const userAvatar = document.querySelector("#userAvatar");
+  const userInfo = load("profile");
+
+  userName.innerHTML = userInfo.name;
+  userEmail.innerHTML = userInfo.email;
+
+  if (userInfo.avatar) {
+    const img = document.createElement("img");
+    img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
+    img.src = userInfo.avatar;
+    img.alt = `Profile image of ${userInfo.name}`;
+    userAvatar.append(img);
+  } else {
+    const img = document.createElement("img");
+    img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
+    img.src = "/img/avatar-1606939.png";
+    img.alt = "Profile avatar default";
+    userAvatar.append(img);
+  }
 }
-
-// export async function getProfile(profileData) {
-//   const getProfileUrl = socialBaseUrl + action;
-//   console.log(getProfileUrl)
-//   const response = await authFetch(getProfileUrl, {
-//     method,
-//     body: JSON.stringify(profileData)
-//   })
-
-//   const result = await response.json();
-//   console.log(result)
-// }
-
-
-
-
-// GET INFOMARTION FROM LOCAL STORAGE!!!!!! //
