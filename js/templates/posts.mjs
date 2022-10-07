@@ -1,5 +1,6 @@
 import { load } from "../storage/index.mjs";
 
+
 /**
  * A function that sets the template to display each post fetched to the main posts feed.
  * 
@@ -28,7 +29,7 @@ export function postTemplateFeed(postData) {
     const UserAvatar = document.createElement("img");
     UserAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
     UserAvatar.src = avatar;
-    UserAvatar.alt = `Avatar for ${avatar}`;
+    UserAvatar.alt = "Avatar";
     UserAvatar.height = "32";
     user.append(UserAvatar, postAuthor)
     postContent.append(user)
@@ -43,7 +44,7 @@ export function postTemplateFeed(postData) {
     const UserAvatar = document.createElement("img");
     UserAvatar.src = "/img/avatar-1606939.png";
     UserAvatar.classList.add("ms-3", "d-flex");
-    UserAvatar.alt = `Avatar for ${avatar}`;
+    UserAvatar.alt = "Avatar";
     UserAvatar.height = "32";
     user.append(UserAvatar, postAuthor)
     postContent.append(user)
@@ -72,7 +73,7 @@ export function postTemplateFeed(postData) {
   }
 
   const readMore = document.createElement("a");
-  readMore.classList.add("d-flex", "justify-content-end", "text-info", "m-3");
+  readMore.classList.add("d-flex", "justify-content-end", "text-info", "m-3", "me-5");
   readMore.setAttribute("href", `/pages/singlePost.html?id=${id}`);
   readMore.innerHTML = "Read more...";
 
@@ -151,9 +152,11 @@ export function postTemplateSingle(postData) {
 
   const post = document.createElement("div");
   post.classList.add("shadow", "rounded", "m-auto", "mb-4", "p-3");
+  // post.setAttribute("style", "min-width: 250px")
 
   const postContent = document.createElement("div");
   postContent.classList.add("border")
+  
 
   post.append(postContent)
   
@@ -169,14 +172,13 @@ export function postTemplateSingle(postData) {
     const userAvatar = document.createElement("img");
     userAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
     userAvatar.src = avatar;
-    userAvatar.alt = `Avatar for ${avatar}`;
+    userAvatar.alt = "Avatar";
     userAvatar.height = "32";
     user.append(userAvatar, postAuthor)
     postContent.append(user)
   } else {
     const user = document.createElement("div");
     user.classList.add("d-flex", "mt-3");
-    user.setAttribute("style", "min-width: 250px")
 
     const postAuthor = document.createElement("p");
     postAuthor.classList.add("ms-3", "mb-4");
@@ -185,7 +187,7 @@ export function postTemplateSingle(postData) {
     const userAvatar = document.createElement("img");
     userAvatar.src = "/img/avatar-1606939.png";
     userAvatar.classList.add("ms-3", "d-flex");
-    userAvatar.alt = `Avatar for ${avatar}`;
+    userAvatar.alt = "Avatar";
     userAvatar.height = "32";
     user.append(userAvatar, postAuthor)
     postContent.append(user)
@@ -230,12 +232,14 @@ export function renderPosts(postDataList, parent) {
 export function renderPostsUser(postDataList, parent) {
   const username = load("profile");
   const { name } = username;
-  
+  const message = document.querySelector("#errorMessage")
+
   postDataList.forEach(e => {
     if (e.author.name === name) {
+      message.innerHTML = "";
       parent.append(postTemplateFeedUser(e));
       console.log(e.author.name) 
-    }
+    } 
   })
   
 }
