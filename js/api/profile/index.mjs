@@ -4,16 +4,18 @@ export function getProfile() {
   const userName = document.querySelector("#userName");
   const userEmail = document.querySelector("#userEmail");
   const userAvatar = document.querySelector("#userAvatar");
+  
   const userInfo = load("profile");
+  const { name, email, avatar } = userInfo;
 
-  userName.innerHTML = userInfo.name;
-  userEmail.innerHTML = userInfo.email;
+  userName.innerHTML = name;
+  userEmail.innerHTML = email;
 
-  if (userInfo.avatar) {
+  if (avatar) {
     const img = document.createElement("img");
     img.classList.add("d-flex", "align-items-center", "m-auto", "w-50")
-    img.src = userInfo.avatar;
-    img.alt = `Profile image of ${userInfo.name}`;
+    img.src = avatar;
+    img.alt = `Profile image of ${name}`;
     userAvatar.append(img);
   } else {
     const img = document.createElement("img");
