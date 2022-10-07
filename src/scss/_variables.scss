@@ -7,7 +7,7 @@ $pink-dark:      #53002a;
 $blue:           #22009b;
 $yellow:         #ffc107;
 $gray-light:     #f8f9fa;
-$gray-medium:   #b9b9b9;
+$gray-medium:    #b9b9b9;
 $gray-dark:      #212529;
 $white:          #fff;
 
@@ -20,7 +20,7 @@ $buttonbg:      $pink-medium;
 $medium:        $gray-medium;
 $dark:          $gray-dark;
 $like:          $yellow;
-$error:         $blue;
+$edit:          $blue;
 $delete:        $medium;
 
 
@@ -31,7 +31,7 @@ $theme-colors: (
   "like":       $like,
   "medium":     $medium,
   "dark":       $dark,
-  "error":      $error,
+  "edit":       $edit,
   "delete":     $delete
 );
 
