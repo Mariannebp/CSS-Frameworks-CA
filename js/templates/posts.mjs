@@ -152,11 +152,9 @@ export function postTemplateSingle(postData) {
 
   const post = document.createElement("div");
   post.classList.add("shadow", "rounded", "m-auto", "mb-4", "p-3");
-  // post.setAttribute("style", "min-width: 250px")
 
   const postContent = document.createElement("div");
   postContent.classList.add("border")
-  
 
   post.append(postContent)
   
@@ -241,7 +239,6 @@ export function renderPostsUser(postDataList, parent) {
       console.log(e.author.name) 
     } 
   })
-  
 }
 
 export function renderPostSingle(postDataSingle, parent) {
