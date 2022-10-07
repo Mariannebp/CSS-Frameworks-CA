@@ -9,8 +9,8 @@ export function setRegisterUserFormListener() {
     const form = event.target;
     const formData = new FormData(form);
     const profile = Object.fromEntries(formData.entries())
-    const action = form.action;
-    const method = form.method;
+    // const action = form.action;
+    // const method = form.method;
 
     register(profile)
 })

@@ -15,8 +15,11 @@ export async function register(profile) {
     body
   })
 
-  const result = await response.json()
-  alert("Registration was successful")
-  return result
+  if (response.ok) {
+    alert("Registration was successful");
+    location.href = "login.html";
+  } else {
+    alert("Something went wrong, please try again")
+  }
 
 }
