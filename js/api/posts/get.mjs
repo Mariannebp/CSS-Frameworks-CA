@@ -18,8 +18,9 @@ export async function getPost(id) {
   }
 
   const getPostUrl = `${socialBaseUrl}${action}/${id}${author}`;
-
+ 
   const response = await authFetch(getPostUrl);
-
+  
   return await response.json();
+  
 }
