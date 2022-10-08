@@ -9,7 +9,7 @@ export async function removePost(id) {
     throw new Error("An post ID is required to delete")
   }
   
-  const removePostUrl = `${socialBaseUrl}${action}/${id}`
+  const removePostUrl = `${socialBaseUrl}${action}/${id}`;
 
   const response = await authFetch(removePostUrl, {
     method

@@ -5,10 +5,6 @@ import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import { getProfile } from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
 
-
-// import { getPost } from "./api/posts/get.mjs";
-// import { load } from "./storage/index.mjs";
-
 const path = location.pathname;
 
 if (path === `/pages/login.html`) {

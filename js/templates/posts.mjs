@@ -1,4 +1,5 @@
 import { load } from "../storage/index.mjs";
+import { removePost } from "../api/posts/remove.mjs";
 
 
 /**
@@ -132,7 +133,7 @@ export function postTemplateFeedUser(postData) {
   buttons.append(editButton, deleteButton);
 
   editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)
-  deleteButton.addEventListener("click", () => location.href = "register.html")
+  deleteButton.addEventListener("click", () => removePost(id))
 
   postContent.append(postBody, buttons);
   
