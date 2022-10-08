@@ -1,8 +1,8 @@
-import { getPosts } from "../api/posts/get.mjs";
+import { getPost } from "../api/posts/get.mjs";
 import { updatePost } from "../api/posts/update.mjs";
 
 export async function setUpdatePostListener() {
-  const form = document.querySelector("#");
+  const form = document.querySelector("#editPost");
 
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
@@ -11,15 +11,14 @@ export async function setUpdatePostListener() {
     const button = form.querySelector("button");
     button.disabled = true;
 
-    const post = await getPosts(id);
-
-    form.title.value = post.title;
-    form.body.value = post.body;
-    form.tags.value = post.tags;
-    form.media.value = post.media;
-
-    button.disabled = false;
+    const post = await getPost(id);
+    const { title, body, media } = post;
     
+    form.title.value = title;
+    form.body.value = body;
+    form.media.value = media;
+
+    button.disabled = false;   
     
     form.addEventListener("submit", (event) => {
       event.preventDefault();

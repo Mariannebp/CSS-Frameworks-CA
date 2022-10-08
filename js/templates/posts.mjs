@@ -131,7 +131,7 @@ export function postTemplateFeedUser(postData) {
   deleteButton.innerHTML = "Delete";
   buttons.append(editButton, deleteButton);
 
-  editButton.addEventListener("click", () => location.href = "editPost.html")
+  editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)
   deleteButton.addEventListener("click", () => location.href = "register.html")
 
   postContent.append(postBody, buttons);
@@ -232,11 +232,12 @@ export function renderPostsUser(postDataList, parent) {
   const { name } = username;
   const message = document.querySelector("#errorMessage")
 
+  console.log(postDataList)
+
   postDataList.forEach(e => {
     if (e.author.name === name) {
       message.innerHTML = "";
       parent.append(postTemplateFeedUser(e));
-      console.log(e.author.name) 
     } 
   })
 }
