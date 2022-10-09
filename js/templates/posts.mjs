@@ -233,8 +233,6 @@ export function renderPostsUser(postDataList, parent) {
   const { name } = username;
   const message = document.querySelector("#errorMessage")
 
-  console.log(postDataList)
-
   postDataList.forEach(e => {
     if (e.author.name === name) {
       message.innerHTML = "";
@@ -243,7 +241,28 @@ export function renderPostsUser(postDataList, parent) {
   })
 }
 
+export function renderPostFeedSearched(postDataList, parent) {
+  const searchInput = document.querySelector("#search");
+  console.log(searchInput)
+
+  searchInput.addEventListener("input", e => {
+    let searchValue = e.target.value.toLowerCase();
+    console.log(searchValue)
+    
+    const container = document.querySelector("#postsFeed");
+    container.innerHTML = "";
+    
+    postDataList.forEach( i => {
+      if (i.title.toLowerCase().startsWith(searchValue) || i.author.name.toLowerCase().startsWith(searchValue)) {
+        parent.append(postTemplateFeed(i));
+        console.log(i);
+      } 
+    })
+  })
+}
+
 export function renderPostSingle(postDataSingle, parent) {
   parent.append(postTemplateSingle(postDataSingle));
 }
+
 

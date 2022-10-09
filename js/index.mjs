@@ -4,6 +4,7 @@ import { setUpdatePostListener } from "./handlers/updatePost.mjs";
 import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import { getProfile } from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
+// import { setSearchPostsListener } from "./handlers/searchPosts.mjs";
 
 const path = location.pathname;
 
@@ -20,6 +21,8 @@ if (path === `/pages/login.html`) {
 } else if (path === `/index.html`) {
   setCreateNewPostListener();
   posts.getPostsFeed();
+  posts.getPostsFeedSearched();
+  // setSearchPostsListener();
 } else if (path === `/pages/singlePost.html`) {
   posts.getPostSingle();
 }
