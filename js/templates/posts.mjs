@@ -247,7 +247,6 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   const filterNewest = document.querySelector("#newest");
   const filterTwentyFourHours = document.querySelector("#twentyFour");
   const filterMoreThenTwentyFourHours = document.querySelector("#moreThenTwentyFour");
-  const filterLastSevenDays = document.querySelector("#week");
   const filterMoreThenSevenDays = document.querySelector("#moreThenWeek")
 
   const day = 1000 * 60 * 60 * 24;
@@ -291,26 +290,11 @@ export function renderPostFeedFiltered(postDatalist, parent) {
     }) 
   })
 
-  filterFortyEight.addEventListener("click", () => {
-    const fortyEight = new Date(currentTime - twoDays).toISOString();
-    container.innerHTML = "";
-
-    const filteredDates = postDatalist.filter(post => post.updated >= fortyEight)
-
-    filteredDates.forEach(i => {
-      if (i) {
-        filterText.innerHTML = "Last 48 hours";
-        parent.append(postTemplateFeed(i)) 
-      }
-    }) 
-  })
-
   filterMoreThenSevenDays.addEventListener("click", () => {
     const lastSevenDays = new Date(currentTime - week).toISOString();
     container.innerHTML = "";
 
     const filteredDates = postDatalist.filter(post => post.updated <= lastSevenDays)
-    console.log(filteredDates)
 
     filteredDates.forEach(i => {
       if (i) {

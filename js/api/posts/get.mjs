@@ -15,7 +15,7 @@ export async function getPosts() {
 
 export async function getPostsMany() {
   const getPostsUrl = `${socialBaseUrl}${action}${author}${many}`;
-  console.log(getPostsUrl)
+  
   const response = await authFetch(getPostsUrl);
 
   return await response.json();

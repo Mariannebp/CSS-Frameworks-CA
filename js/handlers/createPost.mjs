@@ -15,10 +15,11 @@ export function setCreateNewPostListener() {
       const media = newMedia.value;
 
       createPost({
-        title: title,
-        body: text,
-        media: media,
-      })
+          title: title,
+          body: text,
+          media: media,
+        })
+      form.reset();
     })
   }
 }
