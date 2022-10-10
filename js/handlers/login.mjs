@@ -1,5 +1,8 @@
 import { login } from "../api/auth/login.mjs";
 
+/**
+ * A listener for when users a logging in
+ */
 export function setLoginUserFormListener() {
   const form = document.querySelector("#loginUserForm");
 

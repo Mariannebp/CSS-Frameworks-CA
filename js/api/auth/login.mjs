@@ -4,6 +4,10 @@ import * as storage from "../../storage/index.mjs";
 const action = "/auth/login";
 const method = "post"
 
+/**
+ * Logs in the user and stores their profile information in localstorage
+ * @param {string} profile - represents the input information
+ */
 export async function login(profile) {
   const loginUrl = socialBaseUrl + action;
   const body = JSON.stringify(profile);

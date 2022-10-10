@@ -4,6 +4,12 @@ import { authFetch } from "../authFetch.mjs";
 const action = "/posts";
 const method = "put";
 
+
+/**
+ * Updates an post
+ * @param {string} postData Represents input information
+ * @returns 
+ */
 export async function updatePost(postData) {
   if (!postData.id) {
     throw new Error("An post ID is required to make updates")

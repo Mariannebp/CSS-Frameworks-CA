@@ -3,9 +3,8 @@ import { removePost } from "../api/posts/remove.mjs";
 
 
 /**
- * A function that sets the template to display each post fetched to the main posts feed.
- * 
- * @param {string} url that fetches the posts to be displayed.
+ * Sets the template to display each post fetched to the main posts feed.
+ * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplateFeed(postData) {  
   const { title, media, author, updated, id } = postData;
@@ -84,9 +83,9 @@ export function postTemplateFeed(postData) {
 }
 
 /**
- * A function that sets the template to display each post fetched to the user posts feed.
+ * Sets the template to display each post fetched to the user posts feed.
  * 
- * @param {string} url that fetches the posts to be displayed.
+ * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplateFeedUser(postData) {  
   const { title, body, media, updated, id } = postData;
@@ -145,9 +144,8 @@ export function postTemplateFeedUser(postData) {
 }
 
 /**
- * A function that sets the template to display a single post.
- * 
- * @param {string} url that fetches the posts to be displayed.
+ * Sets the template to display a single post.
+ * @param {string} postData that fetches the posts to be displayed.
  */
 export function postTemplateSingle(postData) { 
   const { title, body, media, author, updated } = postData;
@@ -232,15 +230,19 @@ export function postTemplateSingle(postData) {
 }
 
 /**
- * A function to display the fetched posts on the chosen location in html
- * 
- * @param {string} url that fetches the posts to be displayed.
- * @param {string} container to the chosen location in the html 
+ * Displays the fetched posts on the chosen location in html
+ * @param {string} postDataList that fetches the posts to be displayed.
+ * @param {string} parent - the chosen location in the html 
  */
 export function renderPosts(postDataList, parent) {
   parent.append(...postDataList.map(postTemplateFeed));
 }
 
+/**
+ * Filters and displays the fetched posts on the chosen location in html
+ * @param {string} postDatalist that fetches the posts to be displayed.
+ * @param {string} parent - the chosen location in the html 
+ */
 export function renderPostFeedFiltered(postDatalist, parent) {
   const container = document.querySelector("#postsFeed");
   const filterText = document.querySelector("#filterText");
@@ -307,10 +309,9 @@ export function renderPostFeedFiltered(postDatalist, parent) {
 
 
 /**
- * A function to display the fetched posts that matches the search input, on the chosen location in html
- * 
- * @param {string} url that fetches the posts to be displayed.
- * @param {string} container to the chosen location in the html 
+ * Displays the fetched posts that matches the search input, on the chosen location in html
+ * @param {string} postDataList that fetches the posts to be displayed.
+ * @param {string} parent to the chosen location in the html 
  */
 export function renderPostFeedSearched(postDataList, parent) {
   const searchInput = document.querySelector("#search");
@@ -330,10 +331,10 @@ export function renderPostFeedSearched(postDataList, parent) {
 }
 
 /**
- * A function to display the fetched posts that matches the logged in name on the chosen location in html
+ * Displays the fetched posts that matches the logged in name on the chosen location in html
  * 
- * @param {string} url that fetches the posts to be displayed.
- * @param {string} container to the chosen location in the html 
+ * @param {string} postDataList that fetches the posts to be displayed.
+ * @param {string} parent - the chosen location in the html 
  */
 export function renderPostsUser(postDataList, parent) {
   const username = load("profile");
@@ -349,10 +350,10 @@ export function renderPostsUser(postDataList, parent) {
 }
 
 /**
- * A function to display the single fetched post on the chosen location in html
+ * Displays the single fetched post on the chosen location in html
  * 
- * @param {string} url that fetches the posts to be displayed.
- * @param {string} container to the chosen location in the html 
+ * @param {string} postDataSingle that fetches the posts to be displayed.
+ * @param {string} parent to the chosen location in the html 
  */
 export function renderPostSingle(postDataSingle, parent) {
   parent.append(postTemplateSingle(postDataSingle));

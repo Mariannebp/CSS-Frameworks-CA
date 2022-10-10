@@ -1,5 +1,8 @@
 import { createPost } from "../api/posts/create.mjs";
 
+/**
+ * A listener for when creating new posts
+ */
 export function setCreateNewPostListener() {
   const form = document.querySelector("#addNewPost");
   const newTitle = document.querySelector("#title");
