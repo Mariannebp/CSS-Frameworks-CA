@@ -22,6 +22,7 @@ if (path === `/pages/login.html`) {
   setCreateNewPostListener();
   posts.getPostsFeed();
   posts.getPostsFeedSearched();
+  posts.getPostFeedFiltered();
   // setSearchPostsListener();
 } else if (path === `/pages/singlePost.html`) {
   posts.getPostSingle();

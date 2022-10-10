@@ -3,10 +3,19 @@ import { authFetch } from "../authFetch.mjs";
 
 const action = "/posts";
 const author = "?_author=true";
+const many = "&limit=500";
 
 export async function getPosts() {
   const getPostsUrl = `${socialBaseUrl}${action}${author}`;
 
+  const response = await authFetch(getPostsUrl);
+
+  return await response.json();
+}
+
+export async function getPostsMany() {
+  const getPostsUrl = `${socialBaseUrl}${action}${author}${many}`;
+  console.log(getPostsUrl)
   const response = await authFetch(getPostsUrl);
 
   return await response.json();

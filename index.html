@@ -29,6 +29,7 @@
           <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
             <input
               type="search"
+              id="search"
               class="form-control"
               placeholder="Search..."
               aria-label="Search"
@@ -119,6 +120,42 @@
       </section>
       <section class="m-auto mb-5 w-75">
         <h2>News</h2>
+        <div
+          class="d-flex dropdown justify-content-end me-3"
+          id="filterContainer"
+        >
+          <a
+            href="#"
+            class="d-flex link-info text-decoration-none"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <p class="me-2" id="filterText">Filter</p>
+            <p class="dropdown-toggle"></p>
+          </a>
+
+          <ul class="dropdown-menu text-small">
+            <li>
+              <a class="dropdown-item text-info" id="newest"
+                >Newest (default)</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item text-info" id="twentyFour"
+                >Last 24 hours</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-info" id="fortyEight"
+                >Last 48 hours</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-info" id="week">Last 7 days</a>
+            </li>
+          </ul>
+        </div>
         <div id="postsFeed"></div>
       </section>
     </main>

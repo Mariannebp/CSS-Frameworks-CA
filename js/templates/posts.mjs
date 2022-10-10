@@ -5,8 +5,7 @@ import { removePost } from "../api/posts/remove.mjs";
 /**
  * A function that sets the template to display each post fetched to the main posts feed.
  * 
- * @param {string} postData - passes a url.
- * @returns 
+ * @param {string} url that fetches the posts to be displayed.
  */
 export function postTemplateFeed(postData) {  
   const { title, media, author, updated, id } = postData;
@@ -51,6 +50,7 @@ export function postTemplateFeed(postData) {
     postContent.append(user)
     }
 
+
   const date = updated.split("T");
   const dateShortened = date[0];
   const dateFormatting = dateShortened.replace("-", "/");
@@ -83,7 +83,11 @@ export function postTemplateFeed(postData) {
   return post;
 }
 
-
+/**
+ * A function that sets the template to display each post fetched to the user posts feed.
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ */
 export function postTemplateFeedUser(postData) {  
   const { title, body, media, updated, id } = postData;
 
@@ -140,7 +144,11 @@ export function postTemplateFeedUser(postData) {
   return post;
 }
 
-
+/**
+ * A function that sets the template to display a single post.
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ */
 export function postTemplateSingle(postData) { 
   const { title, body, media, author, updated } = postData;
   const { name, avatar } = author;
@@ -223,11 +231,110 @@ export function postTemplateSingle(postData) {
   return post;
 }
 
-
+/**
+ * A function to display the fetched posts on the chosen location in html
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ * @param {string} container to the chosen location in the html 
+ */
 export function renderPosts(postDataList, parent) {
   parent.append(...postDataList.map(postTemplateFeed));
 }
 
+export function renderPostFeedFiltered(postDatalist, parent) {
+  const container = document.querySelector("#postsFeed");
+  const filterText = document.querySelector("#filterText");
+  const filterNewest = document.querySelector("#newest");
+  const filterTwentyFourHours = document.querySelector("#twentyFour");
+  const filterFortyEight = document.querySelector("#fortyEight");
+  const filterLastSevenDays = document.querySelector("#week");
+
+  const day = 1000 * 60 * 60 * 24;
+  const twoDays = day * 2;
+  const week = day * 7;
+  const currentTime = new Date();
+
+
+  filterNewest.addEventListener("click", () => {
+    filterText.innerHTML = "Newest (default)";
+    container.innerHTML = "";
+    parent.append(...postDatalist.map(postTemplateFeed))
+  })
+
+
+  filterTwentyFourHours.addEventListener("click", () => {
+    const twentyFour = new Date(currentTime - day).toISOString();
+    container.innerHTML = "";
+
+    const filteredDates = postDatalist.filter(post => post.updated >= twentyFour)
+
+    filteredDates.forEach(i => {
+      if (i) {
+        filterText.innerHTML = "Last 24 hours";
+        parent.append(postTemplateFeed(i)) 
+      }
+    }) 
+  })
+
+  filterFortyEight.addEventListener("click", () => {
+    const fortyEight = new Date(currentTime - twoDays).toISOString();
+    container.innerHTML = "";
+
+    const filteredDates = postDatalist.filter(post => post.updated >= fortyEight)
+
+    filteredDates.forEach(i => {
+      if (i) {
+        filterText.innerHTML = "Last 48 hours";
+        parent.append(postTemplateFeed(i)) 
+      }
+    }) 
+  })
+
+  filterLastSevenDays.addEventListener("click", () => {
+    const lastSevenDays = new Date(currentTime - week).toISOString();
+    container.innerHTML = "";
+
+    const filteredDates = postDatalist.filter(post => post.updated >= lastSevenDays)
+
+    filteredDates.forEach(i => {
+      if (i) {
+        filterText.innerHTML = "Last 7 days";
+        parent.append(postTemplateFeed(i)) 
+      }
+    }) 
+  })
+}
+
+
+/**
+ * A function to display the fetched posts that matches the search input, on the chosen location in html
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ * @param {string} container to the chosen location in the html 
+ */
+export function renderPostFeedSearched(postDataList, parent) {
+  const searchInput = document.querySelector("#search");
+
+  searchInput.addEventListener("input", e => {
+    let searchValue = e.target.value.toLowerCase();
+    
+    const container = document.querySelector("#postsFeed");
+    container.innerHTML = "";
+    
+    postDataList.forEach( i => {
+      if (i.title.toLowerCase().startsWith(searchValue) || i.author.name.toLowerCase().startsWith(searchValue)) {
+        parent.append(postTemplateFeed(i));
+      } 
+    })
+  })
+}
+
+/**
+ * A function to display the fetched posts that matches the logged in name on the chosen location in html
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ * @param {string} container to the chosen location in the html 
+ */
 export function renderPostsUser(postDataList, parent) {
   const username = load("profile");
   const { name } = username;
@@ -241,26 +348,12 @@ export function renderPostsUser(postDataList, parent) {
   })
 }
 
-export function renderPostFeedSearched(postDataList, parent) {
-  const searchInput = document.querySelector("#search");
-  console.log(searchInput)
-
-  searchInput.addEventListener("input", e => {
-    let searchValue = e.target.value.toLowerCase();
-    console.log(searchValue)
-    
-    const container = document.querySelector("#postsFeed");
-    container.innerHTML = "";
-    
-    postDataList.forEach( i => {
-      if (i.title.toLowerCase().startsWith(searchValue) || i.author.name.toLowerCase().startsWith(searchValue)) {
-        parent.append(postTemplateFeed(i));
-        console.log(i);
-      } 
-    })
-  })
-}
-
+/**
+ * A function to display the single fetched post on the chosen location in html
+ * 
+ * @param {string} url that fetches the posts to be displayed.
+ * @param {string} container to the chosen location in the html 
+ */
 export function renderPostSingle(postDataSingle, parent) {
   parent.append(postTemplateSingle(postDataSingle));
 }

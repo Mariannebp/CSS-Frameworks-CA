@@ -1,7 +1,9 @@
 import { renderPosts } from "../templates/posts.mjs";
+import { renderPostFeedSearched } from "../templates/posts.mjs";
+import { renderPostFeedFiltered } from "../templates/posts.mjs";
 import { renderPostsUser } from "../templates/posts.mjs";
 import { renderPostSingle } from "../templates/posts.mjs";
-import { renderPostFeedSearched } from "../templates/posts.mjs";
+
 import * as post from "../api/posts/index.mjs";
 
 export async function getPostsFeed() {
@@ -16,8 +18,14 @@ export async function getPostsFeedSearched() {
   renderPostFeedSearched(posts, container)
 }
 
+export async function getPostFeedFiltered() {
+  const posts = await post.getPostsMany();
+  const container = document.querySelector("#postsFeed");
+  renderPostFeedFiltered(posts, container)
+}
+
 export async function getPostFeedUser() {
-  const posts = await post.getPosts();
+  const posts = await post.getPostsMany();
   const container = document.querySelector("#usersPosts");
   renderPostsUser(posts, container)
 }
