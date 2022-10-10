@@ -246,8 +246,9 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   const filterText = document.querySelector("#filterText");
   const filterNewest = document.querySelector("#newest");
   const filterTwentyFourHours = document.querySelector("#twentyFour");
-  const filterFortyEight = document.querySelector("#fortyEight");
+  const filterMoreThenTwentyFourHours = document.querySelector("#moreThenTwentyFour");
   const filterLastSevenDays = document.querySelector("#week");
+  const filterMoreThenSevenDays = document.querySelector("#moreThenWeek")
 
   const day = 1000 * 60 * 60 * 24;
   const twoDays = day * 2;
@@ -276,6 +277,20 @@ export function renderPostFeedFiltered(postDatalist, parent) {
     }) 
   })
 
+  filterMoreThenTwentyFourHours.addEventListener("click", () => {
+    const moreThenTwentyFour = new Date(currentTime - day).toISOString();
+    container.innerHTML = "";
+
+    const filteredDates = postDatalist.filter(post => post.updated <= moreThenTwentyFour)
+
+    filteredDates.forEach(i => {
+      if (i) {
+        filterText.innerHTML = "More than 24 hours ago";
+        parent.append(postTemplateFeed(i)) 
+      }
+    }) 
+  })
+
   filterFortyEight.addEventListener("click", () => {
     const fortyEight = new Date(currentTime - twoDays).toISOString();
     container.innerHTML = "";
@@ -290,15 +305,16 @@ export function renderPostFeedFiltered(postDatalist, parent) {
     }) 
   })
 
-  filterLastSevenDays.addEventListener("click", () => {
+  filterMoreThenSevenDays.addEventListener("click", () => {
     const lastSevenDays = new Date(currentTime - week).toISOString();
     container.innerHTML = "";
 
-    const filteredDates = postDatalist.filter(post => post.updated >= lastSevenDays)
+    const filteredDates = postDatalist.filter(post => post.updated <= lastSevenDays)
+    console.log(filteredDates)
 
     filteredDates.forEach(i => {
       if (i) {
-        filterText.innerHTML = "Last 7 days";
+        filterText.innerHTML = "More then 7 ago";
         parent.append(postTemplateFeed(i)) 
       }
     }) 
