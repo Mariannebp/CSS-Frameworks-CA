@@ -31,7 +31,12 @@ export async function setUpdatePostListener() {
       const post = Object.fromEntries(formData.entries())
       post.id = id;
 
-      updatePost(post)
+      updatePost(post);
+      form.reset();
+      setTimeout(() => {
+       location.href = `/pages/profile.html`; 
+      }, 300)
+      
     })
   }
 }

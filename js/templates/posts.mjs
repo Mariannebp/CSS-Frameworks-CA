@@ -136,7 +136,12 @@ export function postTemplateFeedUser(postData) {
   buttons.append(editButton, deleteButton);
 
   editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)
-  deleteButton.addEventListener("click", () => removePost(id))
+  deleteButton.addEventListener("click", () => {
+    removePost(id);
+    setTimeout(() => {
+      location.reload(); 
+     }, 300)
+    })
 
   postContent.append(postBody, buttons);
   
