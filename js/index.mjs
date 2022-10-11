@@ -4,9 +4,29 @@ import { setUpdatePostListener } from "./handlers/updatePost.mjs";
 import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import { getProfile } from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
+import { load } from "./storage/index.mjs";
 // import { setSearchPostsListener } from "./handlers/searchPosts.mjs";
 
 const path = location.pathname;
+const profile = load("profile");
+console.log(profile)
+
+if (!profile) {
+  if (path === `/index.html`) {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="m-auto mb-5 text-center">
+                        <p class="m-4">Seems like you are not logged in yet</p>
+                        <a class="text-info" href="/pages/login.html">Please log in here</a>
+                      <div>`;
+  } if (path === `/pages/profile.html`) {
+    const body = document.querySelector("main");
+    body.innerHTML = `<div class="m-auto mb-5 text-center">
+                        <p class="m-4">Seems like you are not logged in yet</p>
+                        <a class="text-info" href="/pages/login.html">Please log in here</a>
+                      <div>`;
+  }
+  }
+
 
 if (path === `/pages/login.html`) {
   setLoginUserFormListener();
