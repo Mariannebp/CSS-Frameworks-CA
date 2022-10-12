@@ -17,7 +17,7 @@ export function setCreateNewPostListener() {
       const text = newText.value;
       const media = newMedia.value;
 
-      createPost({
+      await createPost({
           title: title,
           body: text,
           media: media,
