@@ -5,11 +5,9 @@ import { setCreateNewPostListener } from "./handlers/createPost.mjs";
 import { getProfile } from "./api/profile/index.mjs";
 import * as posts from "./handlers/getPosts.mjs";
 import { load } from "./storage/index.mjs";
-// import { setSearchPostsListener } from "./handlers/searchPosts.mjs";
 
 const path = location.pathname;
 const profile = load("profile");
-console.log(profile)
 
 if (!profile) {
   if (path === `/index.html`) {

@@ -23,7 +23,7 @@ export function setCreateNewPostListener() {
           media: media,
         })
       form.reset();
-        location.reload(); 
+      location.reload(); 
     })
   }
 }

@@ -23,7 +23,7 @@ export async function setUpdatePostListener() {
 
     button.disabled = false;   
     
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const form = event.target;
@@ -31,12 +31,9 @@ export async function setUpdatePostListener() {
       const post = Object.fromEntries(formData.entries())
       post.id = id;
 
-      updatePost(post);
+      await updatePost(post);
       form.reset();
-      setTimeout(() => {
-       location.href = `/pages/profile.html`; 
-      }, 300)
-      
+      location.href = `/pages/profile.html`; 
     })
   }
 }

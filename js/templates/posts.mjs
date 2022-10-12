@@ -26,11 +26,11 @@ export function postTemplateFeed(postData) {
     postAuthor.innerHTML = name;
 
     const userAvatar = document.createElement("img");
-    UserAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
-    UserAvatar.src = avatar;
-    UserAvatar.alt = "Avatar";
-    UserAvatar.height = "32";
-    user.append(UserAvatar, postAuthor)
+    userAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
+    userAvatar.src = avatar;
+    userAvatar.alt = "Avatar";
+    userAvatar.height = "32";
+    user.append(userAvatar, postAuthor)
     postContent.append(user)
   } else {
     const user = document.createElement("div");
@@ -50,13 +50,10 @@ export function postTemplateFeed(postData) {
     }
 
 
-  const date = new Date(updated).toLocaleDateString()
-  const dateShortened = date[0];
-  const dateFormatting = dateShortened.replace("-", "/");
-  const readDate = dateFormatting.replace("-", "/")
+  const date = new Date(updated).toLocaleDateString();
   const postDate = document.createElement("p")
   postDate.classList.add("text-end", "me-5")
-  postDate.innerHTML = readDate; 
+  postDate.innerHTML = date; 
   
   const postTitle = document.createElement("h4");
   postTitle.classList.add("font-monospace", "m-3", "text-center");
@@ -97,13 +94,11 @@ export function postTemplateFeedUser(postData) {
   postContent.classList.add("border")
   post.append(postContent)
   
-  const date = updated.split("T");
-  const dateShortened = date[0];
-  const dateFormatting = dateShortened.replace("-", "/");
-  const readDate = dateFormatting.replace("-", "/")
+  const date = new Date(updated).toLocaleDateString();
   const postDate = document.createElement("p")
   postDate.classList.add("text-end", "m-3", "me-4")
-  postDate.innerHTML = readDate; 
+  postDate.innerHTML = date; 
+
 
   const postTitle = document.createElement("h4");
   postTitle.classList.add("font-monospace", "m-3");
@@ -136,11 +131,9 @@ export function postTemplateFeedUser(postData) {
   buttons.append(editButton, deleteButton);
 
   editButton.addEventListener("click", () => location.href = `editPost.html?id=${id}`)
-  deleteButton.addEventListener("click", () => {
-    removePost(id);
-    setTimeout(() => {
-      location.reload(); 
-     }, 300)
+  deleteButton.addEventListener("click", async () => {
+    await removePost(id);
+    location.reload(); 
     })
 
   postContent.append(postBody, buttons);
@@ -257,7 +250,6 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   const filterMoreThenSevenDays = document.querySelector("#moreThenWeek")
 
   const day = 1000 * 60 * 60 * 24;
-  const twoDays = day * 2;
   const week = day * 7;
   const currentTime = new Date();
 

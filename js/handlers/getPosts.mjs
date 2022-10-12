@@ -1,9 +1,4 @@
-import { renderPosts } from "../templates/posts.mjs";
-import { renderPostFeedSearched } from "../templates/posts.mjs";
-import { renderPostFeedFiltered } from "../templates/posts.mjs";
-import { renderPostsUser } from "../templates/posts.mjs";
-import { renderPostSingle } from "../templates/posts.mjs";
-
+import { renderPosts, renderPostFeedSearched, renderPostFeedFiltered, renderPostsUser, renderPostSingle } from "../templates/posts.mjs";
 import * as post from "../api/posts/index.mjs";
 
 /**
