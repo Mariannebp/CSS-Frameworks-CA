@@ -10,7 +10,7 @@ export function setCreateNewPostListener() {
   const newMedia = document.querySelector("#media");
 
   if (form) {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const title = newTitle.value;
