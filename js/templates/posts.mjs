@@ -25,7 +25,7 @@ export function postTemplateFeed(postData) {
     postAuthor.classList.add("ms-3", "mb-4");
     postAuthor.innerHTML = name;
 
-    const UserAvatar = document.createElement("img");
+    const userAvatar = document.createElement("img");
     UserAvatar.classList.add("ms-3", "d-flex", "justify-items-start")
     UserAvatar.src = avatar;
     UserAvatar.alt = "Avatar";
