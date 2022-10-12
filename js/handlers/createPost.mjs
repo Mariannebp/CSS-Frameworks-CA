@@ -25,7 +25,6 @@ export function setCreateNewPostListener() {
       form.reset();
       setTimeout(() => {
         location.reload(); 
-       }, 300)
     })
   }
 }
