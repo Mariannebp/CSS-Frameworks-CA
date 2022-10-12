@@ -50,7 +50,7 @@ export function postTemplateFeed(postData) {
     }
 
 
-  const date = updated.split("T");
+  const date = new Date(updated).toLocaleDateString()
   const dateShortened = date[0];
   const dateFormatting = dateShortened.replace("-", "/");
   const readDate = dateFormatting.replace("-", "/")
