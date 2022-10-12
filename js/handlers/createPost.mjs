@@ -23,7 +23,6 @@ export function setCreateNewPostListener() {
           media: media,
         })
       form.reset();
-      setTimeout(() => {
         location.reload(); 
     })
   }
