@@ -73,7 +73,7 @@
         </div>
       </div>
     </header>
-    <main class="container m-auto">
+    <main class="container mt-auto mb-auto" style="max-width: 900px">
       <section class="m-auto mb-5">
         <div>
           <h1 class="m-4 mb-0">The Community</h1>
@@ -85,7 +85,7 @@
           </p>
         </div>
       </section>
-      <section class="m-auto mb-5 w-75">
+      <section class="m-auto mb-5" style="max-width: 700px">
         <div class="shadow rounded m-auto p-3">
           <h3>Add a new post</h3>
           <form
@@ -93,19 +93,19 @@
             id="addNewPost"
           >
             <label for="title" class="form-label text-start">Title</label>
-            <input type="text" id="title" class="form-control mb-3" required />
+            <input type="text" id="title" class="form-control mb-2" required />
             <label for="text" class="form-label text-start">Text</label>
             <textarea
               name="content"
               id="text"
               cols="30"
               rows="3"
-              class="form-control mb-3"
+              class="form-control mb-2"
               required
             ></textarea>
             <label for="media" class="form-label text-start">Image</label>
             <input
-              class="form-control mb-3"
+              class="form-control mb-2"
               type="uri"
               name="media"
               id="media"
@@ -113,12 +113,12 @@
             />
 
             <div class="d-flex justify-content-end">
-              <button class="mt-3 btn btn-buttonbg">Post</button>
+              <button class="mt-2 btn btn-buttonbg">Post</button>
             </div>
           </form>
         </div>
       </section>
-      <section class="m-auto mb-5 w-75">
+      <section class="m-auto mb-5">
         <h2>News</h2>
         <div
           class="d-flex dropdown justify-content-end me-3"
