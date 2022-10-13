@@ -13,13 +13,13 @@ if (!profile) {
   if (path === `/index.html`) {
     const body = document.querySelector("main");
     body.innerHTML = `<div class="m-auto mb-5 text-center">
-                        <p class="m-4">Seems like you are not logged in yet</p>
+                        <h1 class="m-4 fs-2">Seems like you are not logged in yet</h1>
                         <a class="text-info" href="/pages/login.html">Please log in here</a>
                       <div>`;
   } if (path === `/pages/profile.html`) {
     const body = document.querySelector("main");
     body.innerHTML = `<div class="m-auto mb-5 text-center">
-                        <p class="m-4">Seems like you are not logged in yet</p>
+                        <h1 class="m-4 fs-2">Seems like you are not logged in yet</h1>
                         <a class="text-info" href="/pages/login.html">Please log in here</a>
                       <div>`;
   }
