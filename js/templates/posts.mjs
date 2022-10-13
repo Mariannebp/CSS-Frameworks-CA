@@ -19,7 +19,7 @@ import { removePost } from "../api/posts/remove.mjs";
     headTitle.innerHTML = title;
     navTitle.innerHTML = title;
   }
-  
+
   const post = document.createElement("div");
   post.classList.add("shadow", "rounded", "m-auto", "mb-4", "p-3");
   post.setAttribute("style", "max-width: 900px");
@@ -122,6 +122,7 @@ import { removePost } from "../api/posts/remove.mjs";
 
   return post;
 }
+
 
 /**
  * Displays the fetched posts on the chosen location in html

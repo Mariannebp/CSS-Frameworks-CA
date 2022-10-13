@@ -14,7 +14,7 @@ export async function getPostsFeed() {
  * Function that will get the searched posts for the home page. 
  */
 export async function getPostsFeedSearched() {
-  const posts = await post.getPosts();
+  const posts = await post.getPostsMany();
   const container = document.querySelector("#postsFeed");
   renderPostFeedSearched(posts, container)
 }
