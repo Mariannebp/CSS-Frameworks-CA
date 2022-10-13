@@ -154,7 +154,7 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   filterNewest.addEventListener("click", () => {
     filterText.innerHTML = "Newest (default)";
     container.innerHTML = "";
-    parent.append(...postDatalist.map(postTemplateFeed))
+    parent.append(...postDatalist.map(postTemplate))
   })
 
 
