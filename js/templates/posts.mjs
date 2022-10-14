@@ -161,12 +161,12 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   filterTwentyFourHours.addEventListener("click", () => {
     const twentyFour = new Date(currentTime - day).toISOString();
     container.innerHTML = "";
+    filterText.innerHTML = "Last 24 hours";
 
     const filteredDates = postDatalist.filter(post => post.updated >= twentyFour)
 
     filteredDates.forEach(i => {
       if (i) {
-        filterText.innerHTML = "Last 24 hours";
         parent.append(postTemplate(i)) 
       }
     }) 
@@ -175,12 +175,12 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   filterMoreThenTwentyFourHours.addEventListener("click", () => {
     const moreThenTwentyFour = new Date(currentTime - day).toISOString();
     container.innerHTML = "";
+    filterText.innerHTML = "More than 24 hours ago";
 
     const filteredDates = postDatalist.filter(post => post.updated <= moreThenTwentyFour)
 
     filteredDates.forEach(i => {
       if (i) {
-        filterText.innerHTML = "More than 24 hours ago";
         parent.append(postTemplate(i)) 
       }
     }) 
@@ -189,13 +189,13 @@ export function renderPostFeedFiltered(postDatalist, parent) {
   filterMoreThenSevenDays.addEventListener("click", () => {
     const lastSevenDays = new Date(currentTime - week).toISOString();
     container.innerHTML = "";
+    filterText.innerHTML = "More then 7 days ago";
 
     const filteredDates = postDatalist.filter(post => post.updated <= lastSevenDays)
-
+    
     filteredDates.forEach(i => {
       if (i) {
-        filterText.innerHTML = "More then 7 ago";
-        parent.append(postTemplateFeed(i)) 
+        parent.append(postTemplate(i)) 
       }
     }) 
   })
