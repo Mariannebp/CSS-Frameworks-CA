@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media - Log In</title>
+    <title>Social Media - Single Post</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -21,11 +21,11 @@
       <div
         class="row align-items-center justify-content-center justify-content-lg-start"
       >
-        <ul class="col-lg-2 nav me-lg-auto mb-2 justify-content-center mb-md-0">
+        <ul class="col-lg-7 nav mb-2 justify-content-center mb-md-0 p-0">
           <li>
             <a href="/index.html" class="nav-link px-2 link-info">Home</a>
           </li>
-          <li class="nav-link px-2 fst-italic">Log in</li>
+          <li class="nav-link px-2 fst-italic" id="navTitle"></li>
         </ul>
 
         <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -68,47 +68,12 @@
       </div>
     </div>
   </header>
-  <main class="form-signin mt-auto mb-auto text-dark">
+  <main class="text-center mt-auto mb-auto">
     <section
-      class="shadow rounded m-auto mb-4 p-3 w-75"
-      style="max-width: 500px"
-    >
-      <h1 class="h3 ms-3 mb-3 fw-normal">Please log in</h1>
-      <form
-        class="d-flex flex-column justify-content-center"
-        id="loginUserForm"
-        method="post"
-        action="profile.html"
-      >
-        <div class="form-floating mb-3">
-          <input
-            class="form-control"
-            type="text"
-            name="email"
-            id="floatingEmail"
-            placeholder="Email"
-            required
-            pattern="^[\w\-.]+@(stud.)?noroff.no$"
-            title="Email address must end with @(stud.)noroff.no"
-          />
-          <label for="floatingEmail" class="ms-3">Email</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            class="form-control"
-            type="password"
-            name="password"
-            id="floatingPassword"
-            placeholder="Password"
-            required
-            minlength="8"
-          />
-          <label for="floatingPassword" class="ms-3">Password</label>
-        </div>
-        <button class="mt-3 btn btn-buttonbg">Log in</button>
-        <a class="text-buttonbg mt-2" href="register.html">New user</a>
-      </form>
-    </section>
+      class="container w-75 mt-5 mb-5"
+      id="singlePost"
+      style="min-width: 250px"
+    ></section>
   </main>
   <footer class="py-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">

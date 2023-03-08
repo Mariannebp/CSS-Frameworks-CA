@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Frameworks CA</title>
+    <title>Social Media</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script type="module" src="./js/index.mjs" defer></script>
+    <script
+      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
   </head>
   <body
     class="d-flex flex-column min-vh-100 bg-primary bg-gradient text-secondary"
@@ -24,6 +29,7 @@
           <form class="col-md-auto mb-3 mb-lg-0 me-lg-3" role="search">
             <input
               type="search"
+              id="search"
               class="form-control"
               placeholder="Search..."
               aria-label="Search"
@@ -67,7 +73,7 @@
         </div>
       </div>
     </header>
-    <main class="container m-auto">
+    <main class="container mt-auto mb-auto" style="max-width: 900px">
       <section class="m-auto mb-5">
         <div>
           <h1 class="m-4 mb-0">The Community</h1>
@@ -79,110 +85,80 @@
           </p>
         </div>
       </section>
-      <section class="m-auto mb-5 w-75">
+      <section class="m-auto mb-5" style="max-width: 700px">
         <div class="shadow rounded m-auto p-3">
           <h3>Add a new post</h3>
-          <form class="d-flex flex-column justify-content-center">
+          <form
+            class="d-flex flex-column justify-content-center"
+            id="addNewPost"
+          >
             <label for="title" class="form-label text-start">Title</label>
-            <input type="text" id="title" class="form-control mb-3" />
+            <input type="text" id="title" class="form-control mb-2" required />
             <label for="text" class="form-label text-start">Text</label>
             <textarea
               name="content"
               id="text"
               cols="30"
               rows="3"
-              class="form-control mb-3"
+              class="form-control mb-2"
+              required
             ></textarea>
+            <label for="media" class="form-label text-start">Image</label>
+            <input
+              class="form-control mb-2"
+              type="uri"
+              name="media"
+              id="media"
+              required
+            />
+
+            <div class="d-flex justify-content-end">
+              <button class="mt-2 btn btn-buttonbg">Post</button>
+            </div>
           </form>
-          <div class="d-flex justify-content-end">
-            <button class="mt-3 btn btn-buttonbg">Post</button>
-          </div>
         </div>
       </section>
-      <section class="m-auto mb-5 w-75">
+      <section class="m-auto mb-5">
         <h2>News</h2>
-        <div class="shadow rounded m-auto mb-4 p-3">
-          <div class="border mb-0">
-            <div class="m-3 d-flex">
-              <img
-                src="/img/avatar-1606939.png"
-                alt="avatar"
-                width="32"
-                height="32"
-                class="me-2"
-              />
-              <p class="m-1">John Smith</p>
-            </div>
-            <div class="m-3 mb-4">
-              <h4 class="font-monospace">A title</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
-                dolor ducimus labore expedita, a numquam nemo, laudantium illum
-                nostrum voluptas molestiae vero deleniti tempora ipsa
-                repudiandae inventore ex quae porro?
-              </p>
-            </div>
-            <div class="d-flex justify-content-start align-items-center m-3">
-              <button class="btn btn-like me-3">Like</button>
-              <button class="btn btn-buttonbg">Comment</button>
-            </div>
-          </div>
-        </div>
+        <div
+          class="d-flex dropdown justify-content-end me-3"
+          id="filterContainer"
+        >
+          <a
+            href="#"
+            class="d-flex link-info text-decoration-none"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <p class="me-2" id="filterText">Filter</p>
+            <p class="dropdown-toggle"></p>
+          </a>
 
-        <div class="shadow rounded m-auto mb-4 p-3">
-          <div class="border">
-            <div class="m-3 d-flex">
-              <img
-                src="/img/avatar-1606939.png"
-                alt="avatar"
-                width="32"
-                height="32"
-                class="me-2"
-              />
-              <p class="m-1">John Smith</p>
-            </div>
-            <div class="m-3">
-              <h4 class="font-monospace">A title</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
-                dolor ducimus labore expedita, a numquam nemo, laudantium illum
-                nostrum voluptas molestiae vero deleniti tempora ipsa
-                repudiandae inventore ex quae porro?
-              </p>
-            </div>
-            <div class="d-flex justify-content-start align-items-center m-3">
-              <button class="btn btn-like me-3">Like</button>
-              <button class="btn btn-buttonbg">Comment</button>
-            </div>
-          </div>
+          <ul class="dropdown-menu text-small">
+            <li>
+              <a class="dropdown-item text-info" id="newest"
+                >Newest (default)</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item text-info" id="twentyFour"
+                >Last 24 hours</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-info" id="moreThenTwentyFour"
+                >More than 24 hours ago</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-info" id="moreThenWeek"
+                >More then 7 days ago</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="shadow rounded m-auto mb-4 p-3">
-          <div class="border">
-            <div class="m-3 d-flex">
-              <img
-                src="/img/avatar-1606939.png"
-                alt="avatar"
-                width="32"
-                height="32"
-                class="me-2"
-              />
-              <p class="m-1">John Smith</p>
-            </div>
-            <div class="m-3">
-              <h4 class="font-monospace">A title</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
-                dolor ducimus labore expedita, a numquam nemo, laudantium illum
-                nostrum voluptas molestiae vero deleniti tempora ipsa
-                repudiandae inventore ex quae porro?
-              </p>
-            </div>
-            <div class="d-flex justify-content-start align-items-center m-3">
-              <button class="btn btn-like me-3">Like</button>
-              <button class="btn btn-buttonbg">Comment</button>
-            </div>
-          </div>
-        </div>
+        <div id="postsFeed"></div>
       </section>
     </main>
     <footer class="py-4">
@@ -203,6 +179,5 @@
       </ul>
       <p class="text-center text-muted">© 2022 Marianne Bjerløv Pedersen</p>
     </footer>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
